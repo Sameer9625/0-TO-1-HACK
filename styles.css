@@ -1,52 +1,89 @@
 /* styles.css */
-body {
-    font-family: Arial, sans-serif;
-}
 
-.map-container {
+/* CSS Variables for Consistent Theming */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #ddd;
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --transition-speed: 0.3s;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Map Container (if used on other pages) */
+  .map-container {
     width: 100%;
     height: 250px;
     overflow: hidden;
     border-radius: 10px;
-}
-
-.map-image {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+  }
+  .map-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .map-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* Hover Effects */
-button:hover {
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-}
-
-.bg-white:hover {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-}
-
-.map-container img:hover {
-    transform: scale(1.02);
-    transition: all 0.3s ease-in-out;
-}
-
-/* Styling for input fields */
-input, select {
-    border: 2px solid #ddd;
-    padding: 8px;
+  }
+  
+  /* Input Fields and Selects */
+  input, select, textarea {
+    border: 2px solid var(--secondary-color);
+    padding: 10px;
     border-radius: 5px;
     width: 100%;
-}
-
-input:focus, select:focus {
-    border-color: #4CAF50;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
     outline: none;
-}
-
-/* Styling for buttons */
-button {
+  }
+  
+  /* Buttons */
+  button {
+    background: linear-gradient(45deg, var(--primary-color), #66bb6a);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
+    font-size: 1rem;
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    display: inline-block;
+  }
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Additional Hover Effect for Elements with .bg-white */
+  .bg-white {
+    background-color: #fff;
+    transition: box-shadow var(--transition-speed) ease-in-out;
+  }
+  .bg-white:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Utility Classes */
+  .mt-20 {
+    margin-top: 20px;
+  }
+  
